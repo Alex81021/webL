@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensures the website looks good on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaMart - Revision Project</title>
+    <!-- Links our external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- STICKY NAVBAR: Stays at the top when you scroll -->
+    <header class="navbar">
+        <div class="logo">MegaMart</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Shop</a></li>
+                <!-- We will update this span using JavaScript -->
+                <li><button id="dark-mode-toggle">Toggle Dark Mode</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION: The big welcoming banner -->
+        <section id="home" class="hero">
+            <h1>Welcome Back to Web Dev!</h1>
+            <p>Current Time: <span id="live-clock">Loading...</span></p>
+            <button class="cta-button">Start Shopping</button>
+        </section>
+
+        <!-- PRODUCT GRID: We will leave this empty and inject products using JS -->
+        <section id="products" class="product-section">
+            <h2>Featured Products</h2>
+            <!-- JavaScript will insert <article> tags inside this div -->
+            <div id="product-grid" class="grid-container"></div>
+        </section>
+
+        <!-- FORM SECTION: How to handle user input -->
+        <section class="newsletter">
+            <h2>Subscribe for Updates</h2>
+            <!-- The 'id' helps JavaScript find this form -->
+            <form id="subscribe-form">
+                <input type="email" id="email-input" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p id="form-message"></p>
+        </section>
+    </main>
+
+    <!-- Links our external JavaScript file. Placed at the bottom so HTML loads first. -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+/* --- 1. CSS VARIABLES --- */
+/* Change these values to instantly theme your entire website */
+:root {
+    --primary-color: #2563eb;
+    --background-color: #f8fafc;
+    --text-color: #0f172a;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+}
+
+/* Dark mode variables (JavaScript will apply these) */
+.dark-mode {
+    --primary-color: #3b82f6;
+    --background-color: #0f172a;
+    --text-color: #f1f5f9;
+    --card-bg: #1e293b;
+    --nav-bg: #1e293b;
+}
+
+/* --- 2. RESET --- */
+/* Removes default browser margins so our design is consistent */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    /* Smooth transition when toggling dark mode */
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+/* --- 3. STICKY NAVBAR (Flexbox) --- */
+.navbar {
+    background-color: var(--nav-bg);
+    padding: 1rem 2rem;
+    /* This makes the navbar stick to the top! */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    
+    /* Flexbox puts the logo on the left and nav links on the right */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+/* --- 4. HERO SECTION --- */
+.hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(to right, var(--primary-color), #60a5fa);
+    color: white;
+}
+
+button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    /* Hover animation prep */
+    transition: transform 0.2s; 
+}
+
+/* Pseudo-class: How the button reacts when hovered over */
+button:hover {
+    transform: scale(1.05);
+}
+
+/* --- 5. PRODUCT GRID (CSS Grid) --- */
+.product-section {
+    padding: 3rem 2rem;
+}
+
+.grid-container {
+    display: grid;
+    /* AUTOMATIC RESPONSIVENESS: 
+       Creates columns that are at least 250px wide, and fills the row. 
+       No media queries needed for this to look good on mobile! */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Product Card Styling */
+.product-card {
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+}
+
+/* --- 6. MEDIA QUERIES (Mobile Specifics) --- */
+/* If the screen is smaller than 600px, run this code */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
